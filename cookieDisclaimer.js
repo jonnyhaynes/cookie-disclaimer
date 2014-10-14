@@ -1,4 +1,4 @@
-var theWebsite = '_CookieDisclaimer',
+var theWebsite = '_cookieDisclaimer',
     acceptText = 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <strong><a href="/cookies">cookie policy</a></strong> to view more details on the cookies we use.';
 
 $(document).ready(function(){
