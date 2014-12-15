@@ -22,5 +22,4 @@ If this is your first visit, you won;t have this cookie so it will display the d
 
 ### ToDo
 
-- Bower package?
 - Remove dependancy on jQuery
