@@ -1,0 +1,26 @@
+{
+  "name": "cookie-disclaimer",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jonnyhaynes/cookie-disclaimer",
+  "authors": [
+    "Jonny Haynes <jonny@colouringcode.com>"
+  ],
+  "description": "Dynamically adds a cookie disclaimer to a website.",
+  "main": "cookieDisclaimer.js",
+  "keywords": [
+    "cookies",
+    "jquery",
+    "front-end",
+    "web"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1"
+  },
+}

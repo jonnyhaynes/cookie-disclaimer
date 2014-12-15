@@ -16,9 +16,9 @@ More info: http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm
 
 ## Solution
 
-This code will dynamically add a discliamer to the top of the body after checking to see if the _cookieDiscliamer cookie has been accepted or not.
+This code will dynamically add a disclaimer to the top of the body after checking to see if the _cookieDiscliamer cookie has been accepted or not.
 
-If this is your first visit, you won;t have this cookie so it will display the disclaimer. If you visited previously and accepted the disclaimer, the dislaimer will no longer show for a period of 30 days or fi you clear your cookies.
+If this is your first visit, you won;t have this cookie so it will display the disclaimer. If you visited previously and accepted the disclaimer, the disclaimer will no longer show for a period of 30 days or fi you clear your cookies.
 
 ### ToDo
 
