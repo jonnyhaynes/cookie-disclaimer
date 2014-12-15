@@ -20,6 +20,15 @@ This code will dynamically add a disclaimer to the top of the body after checkin
 
 If this is your first visit, you won;t have this cookie so it will display the disclaimer. If you visited previously and accepted the disclaimer, the disclaimer will no longer show for a period of 30 days or fi you clear your cookies.
 
+## Bower
+
+If you're using [Bower](bower.io) to manage your front-end dependencies you can include this plugin as a component. Include `"cookie-disclaimer": "1.0.1"` in your `bower.json` file and run `bower install`.
+
 ### ToDo
 
 - Remove dependancy on jQuery
+
+## Changelog
+
+- **15/12/14:** 1.0.1 – README updates to explain Bower integration.
+- **15/12/14:** 1.0.0 – First major release: registered as a Bower plugin.
