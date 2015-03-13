@@ -1,27 +1,37 @@
-window.CookieDisclaimer = (function (jQuery) {
-  var cookieName, message;
+var CookieDisclaimer = (function () {
 
-  function init(site, message) {
-    this.cookieName = site + '_cookies_accepted';
-    this.message = message;
+  var settings = {
+    name: 'cookies_accepted',
+    template: '/build/javascripts/templates/cookie.html',
+    message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <strong><a href="/cookies">cookie policy</a></strong> to view more details on the cookies we use.'
+  };
 
-    jQuery(document).on('click', '#close-cookies', function(e) {
-      create(CookieDisclaimer.cookieName, true, 1800);
-      jQuery('#cookies').remove();
-      jQuery('body').removeClass('cookie');
-      e.preventDefault();
-    });
-  }
+  var request;
 
-  function test() {
-    if (!read(CookieDisclaimer.cookieName)) {
-      var theDiv = '<div id="cookies"><div class="wrap"><p class="float-l">' + this.message +
-      '</p><p class="float-r"><a id="close-cookies" class="button button-light" href="#">Close</a></p></div></div>';
-      jQuery('body').addClass('cookie').prepend(theDiv);
-    }
-  }
 
-  function create(name, value, days) {
+  /**
+   * Get contents of file
+   */
+
+  var _getFileContents = function(template, callback) {
+
+    request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+      if (request.readyState == 4 && request.status == 200) {
+        callback(request.responseText);
+      }
+    };
+    request.open('GET', template, true);
+    request.send();
+
+  };
+
+
+  /**
+   * Create the cookie
+   */
+  var _create = function (name, value, days) {
+
     var expires;
 
     if (days) {
@@ -33,9 +43,15 @@ window.CookieDisclaimer = (function (jQuery) {
     }
 
     document.cookie = name + '=' + value + expires + '; path=/';
-  }
 
-  function read(name) {
+  };
+
+
+  /**
+   * Read the cookie
+   */
+  var _read = function (name) {
+
     var nameEQ = name + '=';
     var ca = document.cookie.split(';');
 
@@ -46,27 +62,76 @@ window.CookieDisclaimer = (function (jQuery) {
         c = c.substring(1,c.length);
       }
 
-      if (c.indexOf(nameEQ) == 0) {
+      if (c.indexOf(nameEQ) === 0) {
         return c.substring(nameEQ.length,c.length);
       }
     }
 
     return null;
-  }
 
-  return { // Public properties
-    init: init,
-    test: test
   };
-})(jQuery);
 
-$(document).ready(function() {
-  CookieDisclaimer.init(
-    'cms',
-    'Our website uses cookies to monitor traffic on our website and ensure ' +
-    'that we can provide our customers with the best online experience ' +
-    'possible. Please read our <strong><a href="/cookies">cookie ' +
-    'policy</a></strong> to view more details on the cookies we use.'
-  );
-  CookieDisclaimer.test();
-});
+
+  /**
+   * Test for the cookie
+   */
+  var _test = function (options) {
+
+    // override the default config
+    for(var prop in options) {
+      if(options.hasOwnProperty(prop)){
+        settings[prop] = options[prop];
+      }
+    }
+
+    if (!_read(settings.name)) {
+
+      _getFileContents(settings.template, function (response) {
+
+        // create the lightbox
+        var el = document.createElement('div');
+        el.id = 'cookies';
+        el.innerHTML += response;
+
+        // append both to the body
+        document.body.appendChild(el);
+
+        // add message
+        document.getElementById('message').innerHTML = settings.message;
+
+        document.getElementById('close').onclick = function () {
+          // create the cookie
+          _create(settings.name, true, 1800);
+
+          // remove the banner
+          var el = document.getElementById('cookies');
+          el.parentNode.removeChild(el);
+
+          // remove the class name from the body
+          document.className = '';
+
+          // prevent the default link action
+          return false;
+        }
+
+      });
+    }
+
+  };
+
+
+  /**
+   * Initilise the cookie banner
+   */
+  var init = function (options) {
+
+    _test(options);
+
+  };
+
+
+  return {
+    init: init
+  };
+
+})();
