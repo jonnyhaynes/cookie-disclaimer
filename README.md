@@ -15,20 +15,28 @@ It started as an EU Directive that was adopted by all EU countries in May 2011. 
 More info: http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm
 
 ## Solution
+This plugin will dynamically append a disclaimer to the `<body>` after checking to see if a cookie exists on the users machine. If a user visits for the first time they will see the disclaimer. If they've visited previously and accepted the disclaimer, the disclaimer will no longer show for a period of 30 days assuming the user doesn't clear their cookies.
 
-This code will dynamically add a disclaimer to the top of the body after checking to see if the _cookieDiscliamer cookie has been accepted or not.
+## Usage
 
-If this is your first visit, you won;t have this cookie so it will display the disclaimer. If you visited previously and accepted the disclaimer, the disclaimer will no longer show for a period of 30 days or fi you clear your cookies.
+Once you've included the plugin on your site you can initiate the script using the following code.
+
+```
+CookieDisclaimer.init({
+  name: 'CookieName',
+  message: 'This is a disclaimer about cookies.'
+  template: 'cookie-banner.html'
+})
+```
+
+You can define the name of the cookie, the message that is displayed and the template file that should be used. See `tests/cookie.html` for an example template file. You should leave `id="message"`  and `id="close" in tact.
 
 ## Bower
 
-If you're using [Bower](bower.io) to manage your front-end dependencies you can include this plugin as a component. Include `"cookie-disclaimer": "1.0.1"` in your `bower.json` file and run `bower install`.
-
-### ToDo
-
-- Remove dependancy on jQuery
+If you're using [Bower](bower.io) to manage your front-end dependencies you can include this plugin as a component. Include `"cookie-disclaimer": "1.0.2"` in your `bower.json` file and run `bower install`.
 
 ## Changelog
 
+- **13/03/15:** 1.0.2 – Removed reliance on jQuery and modified the way the plugin works to allow templates and parameters.
 - **15/12/14:** 1.0.1 – README updates to explain Bower integration.
 - **15/12/14:** 1.0.0 – First major release: registered as a Bower plugin.
