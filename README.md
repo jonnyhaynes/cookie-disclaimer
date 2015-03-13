@@ -1,6 +1,6 @@
 # Cookie Disclaimer
 
-[![Build Status](https://travis-ci.org/jonnyhaynes/cookie-disclaimer.svg?branch=master)](https://travis-ci.org/jonnyhaynes/cookie-disclaimer) [![Code Climate](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer/badges/gpa.svg)](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer)[![Bower](https://img.shields.io/bower/v/cookie-disclaimer.svg)](https://github.com/jonnyhaynes/cookie-disclaimer) [![David](https://img.shields.io/david/jonnyhaynes/cookie-disclaimer.svg)](https://github.com/jonnyhaynes/cookie-disclaimer)
+[![Build Status](https://travis-ci.org/jonnyhaynes/cookie-disclaimer.svg?branch=master)](https://travis-ci.org/jonnyhaynes/cookie-disclaimer) [![Code Climate](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer/badges/gpa.svg)](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer) [![Bower](https://img.shields.io/bower/v/cookie-disclaimer.svg)](https://github.com/jonnyhaynes/cookie-disclaimer) [![David](https://img.shields.io/david/jonnyhaynes/cookie-disclaimer.svg)](https://github.com/jonnyhaynes/cookie-disclaimer)
 
 Dynamically add a cookie disclaimer to your website
 
