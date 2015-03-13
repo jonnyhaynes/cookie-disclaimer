@@ -30,6 +30,7 @@ var CookieDisclaimer = (function () {
   /**
    * Create the cookie
    */
+
   var _create = function (name, value, days) {
 
     var expires;
@@ -50,6 +51,7 @@ var CookieDisclaimer = (function () {
   /**
    * Read the cookie
    */
+
   var _read = function (name) {
 
     var nameEQ = name + '=';
@@ -75,6 +77,7 @@ var CookieDisclaimer = (function () {
   /**
    * Test for the cookie
    */
+
   var _test = function (options) {
 
     // override the default config
@@ -123,6 +126,7 @@ var CookieDisclaimer = (function () {
   /**
    * Initilise the cookie banner
    */
+
   var init = function (options) {
 
     _test(options);
