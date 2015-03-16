@@ -37,6 +37,7 @@ If you're using [Bower](bower.io) to manage your front-end dependencies you can 
 
 ## Changelog
 
+- **16/03/15:** 1.0.3 – Swapped 'append' for 'prepend' and added class to `<body>`.
 - **13/03/15:** 1.0.2 – Removed reliance on jQuery and modified the way the plugin works to allow templates and parameters.
 - **15/12/14:** 1.0.1 – README updates to explain Bower integration.
 - **15/12/14:** 1.0.0 – First major release: registered as a Bower plugin.
