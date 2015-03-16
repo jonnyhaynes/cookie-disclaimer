@@ -91,27 +91,38 @@ var CookieDisclaimer = (function () {
 
       _getFileContents(settings.template, function (response) {
 
-        // create the lightbox
+        var bodyClass = 'has-cookie-banner';
+
+        // create the banner
         var el = document.createElement('div');
-        el.id = 'cookies';
+        el.id = 'cookie-banner';
         el.innerHTML += response;
 
-        // append both to the body
-        document.body.appendChild(el);
+        // prepend to the body
+        document.body.insertBefore(el, document.body.firstChild);
 
         // add message
         document.getElementById('message').innerHTML = settings.message;
+
+        // add class to body
+        if (document.body.classList)
+          document.body.classList.add(bodyClass);
+        else
+          document.body.className += ' ' + bodyClass;
 
         document.getElementById('close').onclick = function () {
           // create the cookie
           _create(settings.name, true, 1800);
 
           // remove the banner
-          var el = document.getElementById('cookies');
+          var el = document.getElementById('cookie-banner');
           el.parentNode.removeChild(el);
 
           // remove the class name from the body
-          document.className = '';
+          if (document.body.classList)
+            document.body.classList.remove(bodyClass);
+          else
+            document.body.className = document.body.className.replace(new RegExp('(^|\\b)' + bodyClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 
           // prevent the default link action
           return false;
