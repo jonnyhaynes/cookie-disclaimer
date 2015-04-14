@@ -2,8 +2,8 @@ var CookieDisclaimer = (function () {
 
   var settings = {
     name: 'cookies_accepted',
-    template: '/build/javascripts/templates/cookie.html',
-    message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <strong><a href="/cookies">cookie policy</a></strong> to view more details on the cookies we use.'
+    template: 'cookie-banner.html',
+    message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <a href="/cookies">cookie policy</a> to view more details on the cookies we use.'
   };
 
   var request;
@@ -95,7 +95,10 @@ var CookieDisclaimer = (function () {
 
         // create the banner
         var el = document.createElement('div');
-        el.id = 'cookie-banner';
+        el.setAttribute('class', 'cookie-banner');
+        el.setAttribute('id', 'cookie-banner');
+        el.setAttribute('aria-role', 'alert');
+        el.setAttribute('aria-live', 'assertive');
         el.innerHTML += response;
 
         // prepend to the body
