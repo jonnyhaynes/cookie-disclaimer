@@ -1,6 +1,6 @@
 {
   "name": "cookie-disclaimer",
-  "version": "1.0.4",
+  "version": "1.2.0",
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
@@ -9,5 +9,26 @@
   },
   "scripts": {
     "test": "grunt --verbose"
-  }
+  },
+  "description": "Dynamically add a cookie disclaimer to your website",
+  "main": "cookieDisclaimer.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonnyhaynes/cookie-disclaimer.git"
+  },
+  "keywords": [
+    "cookie",
+    "disclaimer",
+    "EU",
+    "law"
+  ],
+  "author": "Jonny Haynes <jonny@colouringcode.com> (http://www.colouringcode.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonnyhaynes/cookie-disclaimer/issues"
+  },
+  "homepage": "https://github.com/jonnyhaynes/cookie-disclaimer#readme"
 }
