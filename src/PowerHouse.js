@@ -22,7 +22,7 @@ export function ready (cb) {
     document.addEventListener('DOMContentLoaded', cb);
   }
 
-};
+}
 
 /**
  * PowerHouse.addClass() adds a class to a specified element.
@@ -45,7 +45,7 @@ export function addClass (el, className) {
     el.className += ' ' + className;
   }
 
-};
+}
 
 /**
  * PowerHouse.addClass() removes a class to a specified element.
@@ -68,7 +68,7 @@ export function removeClass (el, className) {
     el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
 
-};
+}
 
 /**
  * PowerHouse.toggleClass() toggles a class on a specified element.
@@ -100,7 +100,7 @@ export function toggleClass (el, className) {
     el.className = classes.join(' ');
   }
 
-};
+}
 
 /**
  * PowerHouse.hasClass() checks whether an element has a specified class.
@@ -135,7 +135,7 @@ export function hasClass (el, className) {
     el.className = classes.join(' ');
   }
 
-};
+}
 
 /**
  * PowerHouse.randomNumber() returns a random number within a specified range.
@@ -155,7 +155,7 @@ export function randomNumber (min, max) {
 
   return Math.floor(Math.random() * (max - min)) + min;
 
-};
+}
 
 /**
  * PowerHouse.getQueryString() returns data from a URL's query string
@@ -180,7 +180,7 @@ export function getQueryString (key, url) {
 
   return string ? string[1] : null;
 
-};
+}
 
 /**
  * PowerHouse.getFileContents() returns the content of a file
@@ -235,4 +235,4 @@ export function getFileContents (file, success, error) {
   request.open('GET', file, true);
   request.send();
 
-};
+}
