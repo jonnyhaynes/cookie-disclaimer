@@ -5,3 +5,7 @@ node_js:
 
 notifications:
   email: false
+
+addons:
+  code_climate:
+    repo_token: 7741b55bba354dabdf2773bd9509875f0473e84988e5ac091a9b693043faf77a
