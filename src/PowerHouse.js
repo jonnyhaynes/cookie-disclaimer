@@ -6,7 +6,7 @@
  * @memberOf  PowerHouse
  * @name      Powerhouse.ready
  * @access    public
- * @param     {cb} [cb] – the name of the callback that should be fired
+ * @param     {Callback} [cb] – the name of the callback that should be fired
  *
  * ```js
  *   PowerHouse.ready(function () {
@@ -39,11 +39,8 @@ export function ready (cb) {
  */
 export function addClass (el, className) {
 
-  if (el.classList) {
-    el.classList.add(className);
-  } else {
-    el.className += ' ' + className;
-  }
+  if (el.classList) el.classList.add(className);
+  else if (!hasClass(el, className)) el.className += ' ' + className;
 
 }
 
@@ -62,11 +59,8 @@ export function addClass (el, className) {
  */
 export function removeClass (el, className) {
 
-  if (el.classList) {
-    el.classList.remove(className);
-  } else {
-    el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-  }
+  if (el.classList) el.classList.remove(className);
+  else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
 
 }
 
@@ -120,20 +114,7 @@ export function toggleClass (el, className) {
  */
 export function hasClass (el, className) {
 
-  if (el.classList) {
-    el.classList.toggle(className);
-  } else {
-    var classes = el.className.split(' ');
-    var existingIndex = classes.indexOf(className);
-
-    if (existingIndex >= 0) {
-      classes.splice(existingIndex, 1);
-    } else {
-      classes.push(className);
-    }
-
-    el.className = classes.join(' ');
-  }
+  return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
 
 }
 
@@ -234,5 +215,133 @@ export function getFileContents (file, success, error) {
   // Send the HTML
   request.open('GET', file, true);
   request.send();
+
+}
+
+/**
+ * PowerHouse.forEach() loops through a given array
+ *
+ * @memberOf  PowerHouse
+ * @name      Powerhouse.forEach
+ * @access    public
+ * @param     {Array} [array] – the array being targetted
+ * @param     {Callback} [cb] – the name of the callback that should be fired
+ * @returns   {Integer}
+ *
+ * ```js
+ *   PowerHouse.forEach(document.querySelectorAll('.item'), function (el, i) {
+ *     console.log(i + ': ' + el);
+ *   });
+ * ```
+ */
+
+export function forEach (array, cb) {
+
+  for (var i = 0; i < array.length; i++) {
+    cb(array[i], i);
+  }
+
+}
+
+/**
+ * PowerHouse.insertAfter() inserts a given node after a reference node
+ *
+ * @memberOf  PowerHouse
+ * @name      Powerhouse.insertAfter
+ * @access    public
+ * @param     {Element} [newNode] – the new node
+ * @param     {Element} [referenceNode] – the node to insert the new node after
+ *
+ * ```js
+ *   PowerHouse.insertAfter(document.querySelector('.item-2'), document.querySelector('.item-1'));
+ * ```
+ */
+
+export function insertAfter (newNode, referenceNode) {
+
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+
+}
+
+/**
+ * PowerHouse.insertBefore() returns the content of a file
+ *
+ * @memberOf  PowerHouse
+ * @name      Powerhouse.insertBefore
+ * @access    public
+ * @param     {Element} [newNode] – the new node
+ * @param     {Element} [referenceNode] – the node to insert the new node before
+ *
+ * ```js
+ *   PowerHouse.insertBefore(document.querySelector('.item-1'), document.querySelector('.item-2'));
+ * ```
+ */
+
+export function insertBefore (newNode, referenceNode) {
+
+  referenceNode.insertAdjacentHTML('beforebegin', newNode.outerHTML);
+
+}
+
+/**
+ * PowerHouse.remove() removes an element
+ *
+ * @memberOf  PowerHouse
+ * @name      Powerhouse.remove
+ * @access    public
+ * @param     {Element} [el] – the node to remove
+ *
+ * ```js
+ *   PowerHouse.remove(document.querySelector('.item-1'));
+ * ```
+ */
+
+export function remove (el) {
+
+  el.parentNode.removeChild(el);
+
+}
+
+/**
+ * PowerHouse.wrap() wraps an element inside another
+ *
+ * @memberOf  PowerHouse
+ * @name      Powerhouse.wrap
+ * @access    public
+ * @param     {Element} [el] – the element being wrapped
+ * @param     {Element} [wrapper] – the new wrapping element
+ *
+ * ```js
+ *   PowerHouse.wrap(document.querySelector('.needs-a-wrapper'), document.createElement('div'));
+ * ```
+ */
+
+export function wrap (el, wrapper) {
+
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+
+}
+
+/**
+ * PowerHouse.unwrap() unwraps all children from their parent
+ *
+ * @memberOf  PowerHouse
+ * @name      Powerhouse.wrap
+ * @access    public
+ * @param     {Element} [el] – the element being unwrapped
+ *
+ * ```js
+ *   PowerHouse.unwrap(document.querySelector('.unwrap-me'));
+ * ```
+ */
+
+export function unwrap (el) {
+
+  var parent = el.parentNode;
+
+  while (el.firstChild) parent.insertBefore(el.firstChild, el);
+
+  parent.removeChild(el);
 
 }

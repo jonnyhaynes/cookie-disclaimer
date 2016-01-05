@@ -24,6 +24,12 @@
   exports.randomNumber = randomNumber;
   exports.getQueryString = getQueryString;
   exports.getFileContents = getFileContents;
+  exports.forEach = forEach;
+  exports.insertAfter = insertAfter;
+  exports.insertBefore = insertBefore;
+  exports.remove = remove;
+  exports.wrap = wrap;
+  exports.unwrap = unwrap;
 
   function ready(cb) {
     if (document.readyState != 'loading') {
@@ -33,27 +39,13 @@
     }
   }
 
-  ;
-
   function addClass(el, className) {
-    if (el.classList) {
-      el.classList.add(className);
-    } else {
-      el.className += ' ' + className;
-    }
+    if (el.classList) el.classList.add(className);else if (!hasClass(el, className)) el.className += ' ' + className;
   }
-
-  ;
 
   function removeClass(el, className) {
-    if (el.classList) {
-      el.classList.remove(className);
-    } else {
-      el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
+    if (el.classList) el.classList.remove(className);else el.className = el.className.replace(new RegExp('\\b' + className + '\\b', 'g'), '');
   }
-
-  ;
 
   function toggleClass(el, className) {
     if (el.classList) {
@@ -72,32 +64,13 @@
     }
   }
 
-  ;
-
   function hasClass(el, className) {
-    if (el.classList) {
-      el.classList.toggle(className);
-    } else {
-      var classes = el.className.split(' ');
-      var existingIndex = classes.indexOf(className);
-
-      if (existingIndex >= 0) {
-        classes.splice(existingIndex, 1);
-      } else {
-        classes.push(className);
-      }
-
-      el.className = classes.join(' ');
-    }
+    return el.classList ? el.classList.contains(className) : new RegExp('\\b' + className + '\\b').test(el.className);
   }
-
-  ;
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
-
-  ;
 
   function getQueryString(key, url) {
     var href = url ? url : window.location.href,
@@ -105,8 +78,6 @@
         string = reg.exec(href);
     return string ? string[1] : null;
   }
-
-  ;
 
   function getFileContents(file, success, error) {
     if (!window.XMLHttpRequest) {
@@ -135,5 +106,36 @@
     request.send();
   }
 
-  ;
+  function forEach(array, cb) {
+    for (var i = 0; i < array.length; i++) {
+      cb(array[i], i);
+    }
+  }
+
+  function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
+  function insertBefore(newNode, referenceNode) {
+    referenceNode.insertAdjacentHTML('beforebegin', newNode.outerHTML);
+  }
+
+  function remove(el) {
+    el.parentNode.removeChild(el);
+  }
+
+  function wrap(el, wrapper) {
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+  }
+
+  function unwrap(el) {
+    var parent = el.parentNode;
+
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+
+    parent.removeChild(el);
+  }
 });
