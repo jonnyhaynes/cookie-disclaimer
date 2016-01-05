@@ -1,7 +1,7 @@
 {
   "name": "PowerHouse",
   "version": "1.0.0",
-  "description": "Media Queries in JavaScript",
+  "description": "A library of helper useful functions.",
   "main": "js/dist/PowerHouse.min.js",
   "devDependencies": {
     "babel-core": "^6.3.17",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/powerhouse-industries/powerhouse.git"
+    "url": "git://github.com/powerhouse-industries/PowerHouse.git"
   },
   "keywords": [
     "mediaqueries",
@@ -32,6 +32,6 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/powerhouse-industries/powerhouse/issues"
+    "url": "https://github.com/powerhouse-industries/PowerHouse/issues"
   }
 }
