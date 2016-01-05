@@ -15,7 +15,7 @@
   },
   "scripts": {
     "watch": "onchange 'src/*' 'test/*' -- npm run build",
-    "build": "babel src/PowerHouse.js --out-file dist/PowerHouse.js && uglifyjs dist/PowerHouse.js -o dist/PowerHouse.min.js",
+    "build": "jshint src/PowerHouse.js && babel src/PowerHouse.js --out-file dist/PowerHouse.js && uglifyjs dist/PowerHouse.js -o dist/PowerHouse.min.js",
     "test": "jshint src/PowerHouse.js"
   },
   "repository": {
