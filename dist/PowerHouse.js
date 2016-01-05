@@ -32,7 +32,7 @@
   exports.unwrap = unwrap;
 
   function ready(cb) {
-    if (document.readyState != 'loading') {
+    if (document.readyState !== 'loading') {
       cb();
     } else {
       document.addEventListener('DOMContentLoaded', cb);
