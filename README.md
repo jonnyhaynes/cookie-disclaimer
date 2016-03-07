@@ -25,7 +25,7 @@ Once you've included the plugin on your site you can initiate the script using t
 ```
 CookieDisclaimer.init({
   name: 'CookieName',
-  message: 'This is a disclaimer about cookies.'
+  message: 'This is a disclaimer about cookies.',
   template: 'cookie-banner.html'
 })
 ```
