@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/powerhouse-industries/CookieDisclaimer.git"
+    "url": "git://github.com/jonnyhaynes/cookie-disclaimer.git"
   },
   "keywords": [
     "cookie",
@@ -35,6 +35,6 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/powerhouse-industries/CookieDisclaimer/issues"
+    "url": "https://github.com/jonnyhaynes/cookie-disclaimer/issues"
   }
 }
