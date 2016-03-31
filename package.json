@@ -1,5 +1,5 @@
 {
-  "name": "PowerHouse",
+  "name": "powerhouse-js",
   "version": "1.0.0",
   "description": "A library of helper useful functions.",
   "main": "js/dist/PowerHouse.min.js",
