@@ -1,8 +1,8 @@
 {
-  "name": "powerhouse-js",
-  "version": "1.0.1",
-  "description": "A library of helper useful functions.",
-  "main": "dist/PowerHouse.min.js",
+  "name": "cookie-disclaimer",
+  "version": "2.0.0",
+  "description": "Dynamically add a cookie disclaimer to your website.",
+  "main": "dist/CookieDisclaimer.min.js",
   "devDependencies": {
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
@@ -16,16 +16,18 @@
   },
   "scripts": {
     "watch": "onchange 'src/*' 'test/*' -- npm run build",
-    "build": "jshint src/PowerHouse.js && babel src/PowerHouse.js --out-file dist/PowerHouse.js --plugins transform-es2015-modules-umd && uglifyjs dist/PowerHouse.js -o dist/PowerHouse.min.js",
-    "test": "jshint src/PowerHouse.js"
+    "build": "jshint src/CookieDisclaimer.js && babel src/CookieDisclaimer.js --out-file dist/CookieDisclaimer.js --plugins transform-es2015-modules-umd && uglifyjs dist/CookieDisclaimer.js -o dist/CookieDisclaimer.min.js",
+    "test": "jshint src/CookieDisclaimer.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/powerhouse-industries/PowerHouse.git"
+    "url": "git://github.com/powerhouse-industries/CookieDisclaimer.git"
   },
   "keywords": [
-    "mediaqueries",
-    "responsive",
+    "cookie",
+    "disclaimer",
+    "EU",
+    "law",
     "javascript"
   ],
   "author": [
@@ -33,6 +35,6 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/powerhouse-industries/PowerHouse/issues"
+    "url": "https://github.com/powerhouse-industries/CookieDisclaimer/issues"
   }
 }
