@@ -1,7 +1,6 @@
 # Cookie Disclaimer
 
-[![Build Status](https://travis-ci.org/jonnyhaynes/cookie-disclaimer.svg?branch=master)](https://travis-ci.org/jonnyhaynes/cookie-disclaimer) [![Code Climate](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer/badges/gpa.svg)](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer) [![npm](https://img.shields.io/npm/v/cookie-disclaimer.svg)](https://www.npmjs.com/package/cookie-disclaimer) [![Bower](https://img.shields.io/bower/v/cookie-disclaimer.svg)](https://github.com/jonnyhaynes/cookie-disclaimer)
-[![Dependency Status](https://david-dm.org/jonnyhaynes/cookie-disclaimer.svg)](https://david-dm.org/jonnyhaynes/cookie-disclaimer)
+[![Build Status](https://travis-ci.org/jonnyhaynes/cookie-disclaimer.svg?branch=master)](https://travis-ci.org/jonnyhaynes/cookie-disclaimer) [![Code Climate](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer/badges/gpa.svg)](https://codeclimate.com/github/jonnyhaynes/cookie-disclaimer) [![npm](https://img.shields.io/npm/v/cookie-disclaimer.svg)](https://www.npmjs.com/package/cookie-disclaimer) [![Dependency Status](https://david-dm.org/jonnyhaynes/cookie-disclaimer.svg)](https://david-dm.org/jonnyhaynes/cookie-disclaimer)
 
 Dynamically add a cookie disclaimer to your website
 
@@ -30,24 +29,15 @@ CookieDisclaimer.init({
 })
 ```
 
-You can define the name of the cookie, the message that is displayed and the template file that should be used. See `tests/cookie.html` for an example template file. You should leave `id="message"`  and `id="close" in tact.
+You can define the name of the cookie, the message that is displayed and the template file that should be used. See `tests/cookie.html` for an example template file. You should leave `id="message"`  and `id="close"` in tact.
 
-<<<<<<< HEAD
-=======
-## Bower
 
-If you're using [Bower](bower.io) to manage your front-end dependencies you can include this plugin as a component. Include `"cookie-disclaimer": "1.2.0"` in your `bower.json` file and run `bower install`.
-
->>>>>>> c4609ef1a1ec33fff104bbc4d42d77ac4413afac
 ## NPM
 If you're using NPM to manage your dependencies you can include this plugin as a module. Just run `npm install cookie-disclaimer`.
 
 ## Changelog
 
-<<<<<<< HEAD
 - **31/03/16:** 1.2.0 - Major update for commonJS/Browserify/Webpack implementation
-=======
->>>>>>> c4609ef1a1ec33fff104bbc4d42d77ac4413afac
 - **18/06/15:** 1.2.0 - Converted to a Node.js module
 - **14/04/15:** 1.0.4 – Updated the default cookie banner template to use a `<button>` instead of an empty `<a href="">Close</a>`.
 - **16/03/15:** 1.0.3 – Swapped 'append' for 'prepend' and added class to `<body>`.
