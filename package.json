@@ -1,6 +1,6 @@
 {
   "name": "cookie-disclaimer",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Dynamically add a cookie disclaimer to your website.",
   "main": "dist/CookieDisclaimer.min.js",
   "devDependencies": {

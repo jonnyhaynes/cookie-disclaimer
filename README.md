@@ -37,7 +37,7 @@ If you're using NPM to manage your dependencies you can include this plugin as a
 
 ## Changelog
 
-- **31/03/16:** 1.2.0 - Major update for commonJS/Browserify/Webpack implementation
+- **31/03/16:** 2.0.1 - Major update for commonJS/Browserify/Webpack implementation
 - **18/06/15:** 1.2.0 - Converted to a Node.js module
 - **14/04/15:** 1.0.4 – Updated the default cookie banner template to use a `<button>` instead of an empty `<a href="">Close</a>`.
 - **16/03/15:** 1.0.3 – Swapped 'append' for 'prepend' and added class to `<body>`.
