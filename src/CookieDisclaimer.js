@@ -4,7 +4,8 @@
 let settings = {
   name: 'cookies_accepted',
   template: 'cookie-banner.html',
-  message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <a href="/cookies">cookie policy</a> to view more details on the cookies we use.'
+  message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <a href="/cookies">cookie policy</a> to view more details on the cookies we use.',
+  duration: 30
 };
 
 let bodyClass = 'has-cookie-banner';
@@ -98,7 +99,7 @@ function getFileContents (file, success, error) {
  * @param     {number} [duration] – the duration of the cookie
  *
  * ```js
- *   createCookie('cookies_accepted', 'true', 1800);
+ *   createCookie('cookies_accepted', 'true', 30);
  * ```
  */
 function createCookie (name, value, duration) {
@@ -209,7 +210,7 @@ export function init (options) {
       document.getElementById('close').onclick = function () {
 
         // 1. On click create the cookie
-        createCookie(settings.name, true, 1800);
+        createCookie(settings.name, true, settings.duration);
 
         // 2. Remove the banner
         let banner = document.getElementById('cookie-banner');
