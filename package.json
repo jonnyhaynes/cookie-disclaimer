@@ -1,6 +1,6 @@
 {
   "name": "cookie-disclaimer",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Dynamically add a cookie disclaimer to your website.",
   "main": "dist/CookieDisclaimer.min.js",
   "devDependencies": {
@@ -12,11 +12,12 @@
     "jshint": "^2.8.0",
     "onchange": "^2.0.0",
     "uglify-js": "^2.6.1",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "babel-cli": "^6.14.0"
   },
   "scripts": {
     "watch": "onchange 'src/*' 'test/*' -- npm run build",
-    "build": "jshint src/CookieDisclaimer.js && babel src/CookieDisclaimer.js --out-file dist/CookieDisclaimer.js --plugins transform-es2015-modules-umd && uglifyjs dist/CookieDisclaimer.js -o dist/CookieDisclaimer.min.js",
+    "build": "jshint src/CookieDisclaimer.js && babel src/CookieDisclaimer.js --out-file dist/CookieDisclaimer.js --plugins transform-es2015-modules-amd && uglifyjs dist/CookieDisclaimer.js -o dist/CookieDisclaimer.min.js",
     "test": "jshint src/CookieDisclaimer.js"
   },
   "repository": {
@@ -31,6 +32,7 @@
     "javascript"
   ],
   "author": [
+    "Jonny Haynes <jonny@colouringcode.com>",
     "Oliver Farrell <oliver@oliverjfarrell.co.uk>"
   ],
   "license": "MIT",

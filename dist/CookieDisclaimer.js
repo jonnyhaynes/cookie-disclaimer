@@ -1,29 +1,5 @@
-(function (global, factory) {
-  if (typeof define === "function" && define.amd) {
-    define(['exports'], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(exports);
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(mod.exports);
-    global.CookieDisclaimer = mod.exports;
-  }
-})(this, function (exports) {
-  (function (global, factory) {
-    if (typeof define === "function" && define.amd) {
-      define(['exports'], factory);
-    } else if (typeof exports !== "undefined") {
-      factory(exports);
-    } else {
-      var mod = {
-        exports: {}
-      };
-      factory(mod.exports);
-      global.CookieDisclaimer = mod.exports;
-    }
-  })(this, function (exports) {
+define([], function () {
+  define(['exports'], function (exports) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -37,7 +13,8 @@
     var settings = {
       name: 'cookies_accepted',
       template: 'cookie-banner.html',
-      message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <a href="/cookies">cookie policy</a> to view more details on the cookies we use.'
+      message: 'Our website uses cookies to monitor traffic on our website and ensure that we can provide our customers with the best online experience possible. Please read our <a href="/cookies">cookie policy</a> to view more details on the cookies we use.',
+      duration: 30
     };
 
     var bodyClass = 'has-cookie-banner';
@@ -129,7 +106,7 @@
      * @param     {number} [duration] – the duration of the cookie
      *
      * ```js
-     *   createCookie('cookies_accepted', 'true', 1800);
+     *   createCookie('cookies_accepted', 'true', 30);
      * ```
      */
     function createCookie(name, value, duration) {
@@ -235,7 +212,7 @@
           document.getElementById('close').onclick = function () {
 
             // 1. On click create the cookie
-            createCookie(settings.name, true, 1800);
+            createCookie(settings.name, true, settings.duration);
 
             // 2. Remove the banner
             var banner = document.getElementById('cookie-banner');
