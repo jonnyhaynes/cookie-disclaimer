@@ -202,8 +202,8 @@ define([], function () {
           // 2. Prepend to the body
           document.body.insertBefore(el, document.body.firstChild);
 
-          // 3. Add message
-          document.getElementById('message').innerHTML = settings.message;
+          // 3. Add message if present
+          if (settings.message) document.getElementById('message').innerHTML = settings.message;
 
           // 4. Add class to body
           if (document.body.classList) document.body.classList.add(bodyClass);else if (!hasClass(document.body, bodyClass)) document.body.className += ' ' + bodyClass;
