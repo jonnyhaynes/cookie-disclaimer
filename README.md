@@ -25,7 +25,8 @@ Once you've included the plugin on your site you can initiate the script using t
 CookieDisclaimer.init({
   name: 'CookieName',
   message: 'This is a disclaimer about cookies.',
-  template: 'cookie-banner.html'
+  template: 'cookie-banner.html',
+  duration: 30
 })
 ```
 
@@ -37,6 +38,7 @@ If you're using NPM to manage your dependencies you can include this plugin as a
 
 ## Changelog
 
+- **23/09/16:** 2.0.2 - Added in a setting for cookie duration
 - **31/03/16:** 2.0.1 - Major update for commonJS/Browserify/Webpack implementation
 - **18/06/15:** 1.2.0 - Converted to a Node.js module
 - **14/04/15:** 1.0.4 – Updated the default cookie banner template to use a `<button>` instead of an empty `<a href="">Close</a>`.
